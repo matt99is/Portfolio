@@ -1,5 +1,15 @@
 /* Hide Framer editor/floating buttons without breaking site functionality */
 
+/* Target the specific Framer editor button that appears on the page */
+#__framer-editorbar-button,
+#__framer-editorbar-loading-spinner,
+#__framer-editorbar-label {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 /* Hide any floating buttons/badges that Framer might inject */
 [data-framer-editorbar],
 [data-framer-badge],
