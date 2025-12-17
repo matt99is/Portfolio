@@ -25,6 +25,10 @@ remove_patterns:
   - "resize"
   - "template"
 
+# CSS patterns to remove (handled automatically)
+# - Framer badge container (#__framer-badge-container)
+# - Vendor-specific floating elements
+
 # Specific elements to remove
 remove_elements:
   - selector: "script"

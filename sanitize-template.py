@@ -255,6 +255,23 @@ class TemplateSanitizer:
 
         return changes
 
+    def sanitize_css(self, content: str) -> tuple[str, int]:
+        """Remove vendor-specific CSS patterns"""
+        import re
+        changes = 0
+        original_content = content
+
+        # Remove Framer badge container CSS
+        # Matches: @supports...{#__framer-badge-container{...}}#__framer-badge-container{...}
+        pattern = r'@supports\s*\(z-index:calc\(infinity\)\)\s*\{#__framer-badge-container\{[^}]+\}\}#__framer-badge-container\{[^}]+\}'
+        content = re.sub(pattern, '', content)
+
+        if content != original_content:
+            changes += 1
+            self.log("Removed Framer badge container CSS")
+
+        return content, changes
+
     def process_file(self, file_path: Path):
         """Process a single HTML file"""
         self.log(f"\n{'='*60}")
@@ -268,10 +285,13 @@ class TemplateSanitizer:
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
 
+        # First pass: sanitize CSS patterns in raw HTML
+        content, css_changes = self.sanitize_css(content)
+
         soup = BeautifulSoup(content, 'html.parser')
 
         # Track changes
-        total_changes = 0
+        total_changes = css_changes
 
         # Sanitize metadata
         total_changes += self.sanitize_metadata(soup, file_path)
