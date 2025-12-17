@@ -1,0 +1,17 @@
+/* Hide Framer editor/floating buttons without breaking site functionality */
+
+/* Hide any floating buttons/badges that Framer might inject */
+[data-framer-editorbar],
+[data-framer-badge],
+.__framer-badge-container,
+.__framer-editorbar-container,
+/* Framer's injected elements often have these patterns */
+div[style*="position: fixed"][style*="z-index: 2147483"],
+button[style*="position: fixed"][style*="bottom"],
+/* Common floating button patterns */
+body > div[style*="position: fixed"]:last-child:not([id]):not([class]) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
