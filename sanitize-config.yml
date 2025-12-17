@@ -1,0 +1,75 @@
+# Template Sanitization Configuration
+# Edit this file with your personal details
+
+# Personal Information
+personal:
+  name: "Matt"
+  title: "UX Designer specialising in e-commerce"
+  description: "I combine analytics, user research, and accessibility testing to deliver measurable improvements. Focused on basket, checkout, and micro-interactions that turn browsers into buyers."
+
+# Page-specific metadata (optional overrides)
+pages:
+  contact:
+    title: "Contact - Matt, UX Designer"
+    description: "Get in touch to discuss your e-commerce UX project. Specializing in basket, checkout optimization, and conversion-focused design."
+
+  # Case study pages - uses pattern matching
+  # e.g., work/basket-redesign -> "Basket Redesign"
+  case_studies:
+    title_template: "{project_name} - Matt, UX Designer"
+    description_template: "Case study: {project_name} focusing on e-commerce UX optimization."
+
+# Vendor patterns to remove
+remove_patterns:
+  - "framer"
+  - "resize"
+  - "template"
+
+# Specific elements to remove
+remove_elements:
+  - selector: "script"
+    contains: "framer.com"
+  - selector: "meta[name='generator']"
+    contains: "Framer"
+  - selector: "meta[name^='framer-']"
+  - selector: "meta[property='og:title']"
+    contains: "Resize"
+  - selector: "meta[name='twitter:title']"
+    contains: "Resize"
+
+# Attribute replacements
+attribute_replacements:
+  - from: "data-framer-font-css"
+    to: "data-font-css"
+  - from: "data-framer-component-type"
+    to: "data-component-type"
+
+# Asset handling
+assets:
+  download_external: true
+  local_path: "assets/images"
+  vendor_domains:
+    - "framerusercontent.com"
+
+  # Which assets to download
+  download_types:
+    - "favicons"
+    - "og_images"
+    - "twitter_images"
+
+# Files to process
+files:
+  patterns:
+    - "**/*.html"
+  exclude:
+    - "node_modules/**"
+    - ".git/**"
+    - "**/.DS_Store"
+
+# Output
+output:
+  backup: true
+  backup_suffix: ".backup"
+  report: true
+  report_file: "sanitization-report.txt"
+  verbose: true

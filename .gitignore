@@ -1,0 +1,22 @@
+# Sanitizer backups - don't commit
+*.backup
+
+# Sanitization reports
+sanitization-report.txt
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE files
+.DS_Store
+.vscode/
+.idea/
+
+# Local development
+.env
+.env.local
+
+# Claude Code
+.claude/
