@@ -256,7 +256,7 @@ class TemplateSanitizer:
         return changes
 
     def sanitize_css(self, content: str) -> tuple[str, int]:
-        """Remove vendor-specific CSS patterns"""
+        """Remove vendor-specific CSS patterns and scripts"""
         import re
         changes = 0
         original_content = content
@@ -265,10 +265,23 @@ class TemplateSanitizer:
         # Matches: @supports...{#__framer-badge-container{...}}#__framer-badge-container{...}
         pattern = r'@supports\s*\(z-index:calc\(infinity\)\)\s*\{#__framer-badge-container\{[^}]+\}\}#__framer-badge-container\{[^}]+\}'
         content = re.sub(pattern, '', content)
-
         if content != original_content:
             changes += 1
             self.log("Removed Framer badge container CSS")
+
+        # Remove Framer JavaScript bundle (the main script that creates floating buttons)
+        original_content = content
+        content = re.sub(r'<script[^>]*data-framer-bundle="main"[^>]*>.*?</script>', '', content, flags=re.DOTALL)
+        if content != original_content:
+            changes += 1
+            self.log("Removed Framer main script bundle")
+
+        # Remove Framer modulepreload links
+        original_content = content
+        content = re.sub(r'<link[^>]*framerusercontent\.com/sites/[^>]*rel="modulepreload"[^>]*/>', '', content)
+        if content != original_content:
+            changes += 1
+            self.log("Removed Framer modulepreload links")
 
         return content, changes
 
