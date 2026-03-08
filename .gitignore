@@ -20,3 +20,12 @@ __pycache__/
 
 # Claude Code
 .claude/
+
+# Local Netlify folder
+.netlify
+
+# Playwright MCP session data
+.playwright-mcp/
+
+# CV source doc (PDF is committed instead)
+*.docx
