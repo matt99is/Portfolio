@@ -1,1 +1,2 @@
-/* https://lelonek.webflow.io/:splat 301!
+/images/*  /images/:splat  200
+/*  https://lelonek.webflow.io/:splat  301!
