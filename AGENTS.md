@@ -20,6 +20,7 @@ Read these files before starting any task:
 |---|---|---|
 | 1 - always | `case-studies/homepage.md` | Homepage content source |
 | 2 - always | `case-studies/about.md` | About-page content source |
+| 3 - before frontend work | `/home/matt99is/projects/vault/Patterns/frontend-standards.md` | Before any frontend or UI work |
 | 3 - for portfolio case updates | `case-studies/01-minibasket.md` | Representative long-form case study format |
 | 4 - for routing behavior | `_redirects` | Netlify redirect rules |
 | 5 - for deploy behavior | `netlify.toml` | Netlify serving configuration |
