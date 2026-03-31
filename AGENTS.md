@@ -20,7 +20,7 @@ Read these files before starting any task:
 |---|---|---|
 | 1 - always | `case-studies/homepage.md` | Homepage content source |
 | 2 - always | `case-studies/about.md` | About-page content source |
-| 3 - before frontend work | `/home/matt99is/projects/vault/Patterns/frontend-standards.md` | Before any frontend or UI work |
+| 3 - before frontend work | `../vault/Patterns/frontend-standards.md` | Before any frontend or UI work |
 | 3 - for portfolio case updates | `case-studies/01-minibasket.md` | Representative long-form case study format |
 | 4 - for routing behavior | `_redirects` | Netlify redirect rules |
 | 5 - for deploy behavior | `netlify.toml` | Netlify serving configuration |
@@ -29,14 +29,16 @@ Read these files before starting any task:
 
 ## Startup Gate (Mandatory)
 
-Before running commands, searching files, or editing content, every agent must:
+Before running commands, searching files, or editing content, every agent must load the always-required startup context:
 
 1. Read this `AGENTS.md`.
 2. Read `case-studies/homepage.md`.
 3. Read `case-studies/about.md`.
-4. Read vault project note: `/home/matt99is/projects/vault/Projects/Portfolio.md`.
-5. Read vault governance note: `/home/matt99is/projects/vault/Patterns/vault-note-governance.md`.
+4. Read vault project note: `../vault/Projects/Portfolio.md`.
+5. Read vault governance note: `../vault/Patterns/vault-note-governance.md`.
 6. In the first response of the session, explicitly confirm these files were loaded.
+
+Load other items from the table above only when their scope applies to the task.
 
 If any step is missed, stop and complete it before continuing.
 
@@ -44,7 +46,7 @@ If any step is missed, stop and complete it before continuing.
 
 ## Vault Note Contract (Anti-Bloat)
 
-The vault project note at `/home/matt99is/projects/vault/Projects/Portfolio.md` is startup memory, not history.
+The vault project note at `../vault/Projects/Portfolio.md` is startup memory, not history.
 
 ### Fixed purpose
 - Keep only current operating truth needed to start work quickly.
