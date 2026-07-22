@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+> **Delegated agents:** Skip the root startup contract below. Use only the task capsule and named code/tests; do not load vault/general project context, skills, or spawn agents.
+
 `AGENTS.md` is the authoritative LLM context entry point for this project.
 
 ## Mandatory startup contract (do this before commands/search/edits)

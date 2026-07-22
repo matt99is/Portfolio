@@ -1,5 +1,9 @@
 # AGENTS.md
 
+## Delegated-agent exception
+
+The startup/load-order gates below apply to the root/main agent. A delegated worker, explorer, tester, or reviewer follows its task capsule instead: do not run the global vault lifecycle, read general vault/project context, invoke unassigned skills, or spawn agents. Read only explicitly named files and directly relevant code/tests.
+
 This is the entry point for any AI agent working on this project. Read this file first, then follow the load order before touching files.
 
 ---
