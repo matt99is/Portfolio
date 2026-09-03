@@ -96,6 +96,22 @@ ls case-studies/
 
 ---
 
+## Development workflow
+
+- Follow the provider-neutral development policy in `../vault/Patterns/agent-development-operating-model.md`; it is the single authority for execution depth, debugging, verification, review, and completion evidence.
+
+## Verification gates
+
+| Gate | Required evidence |
+|---|---|
+| Targeted test | Check the affected content, link, route, redirect, or asset. |
+| Fast check | No automated fast check exists; report the focused manual check performed. |
+| Full check | Validate case-study content, public assets, redirects, and Netlify configuration as applicable. |
+| User-journey check | Preview with `python3 -m http.server 8787` and inspect the affected route. |
+| CI gate | Netlify publishes the static site, but no automated quality CI is configured. |
+
+---
+
 ## Critical gotchas
 
 - This repo is not the full Webflow source; it supports content/assets feeding external publishing.
